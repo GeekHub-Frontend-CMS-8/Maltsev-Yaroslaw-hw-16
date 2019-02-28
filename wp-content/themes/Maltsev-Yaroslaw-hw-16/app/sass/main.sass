@@ -1,0 +1,669 @@
+// @import '../css/style.css'
+@import 'utils/_variabels.sass'
+@import 'utils/_mixins.sass'
+@import 'utils/_global.sass'
+
+body
+.section-title
+	margin-bottom: 20px
+	color: #333333
+	// font-family: "Roboto Condensed"
+	font-size: 18px
+	font-weight: 700	
+
+.header
+	position: fixed
+	width: calc(100% - 5px)
+	padding: 10px
+	// border: 1px solid blue
+	+flex-flow(row nowrap)
+	background: #fff
+
+.menu
+	width: 50%
+	z-index: 1000
+	// border: 1px solid red
+	+flex-justify-align-flow(flex-start, center, row wrap)
+	&__img
+		cursor: pointer
+		@each $img-status in open, close
+			&--#{$img-status}
+				padding: 25px
+				margin-right: 10px
+				background: url('../img/Header/menu-#{$img-status}.png') no-repeat
+	&--open
+		+flex-justify-align-flow(flex-start, center, row wrap)
+		display: none
+		background: #fff
+	&-list
+		padding-right: 30px
+		+flex-justify-align-flow(flex-start, center, row wrap)
+		&__item
+			cursor: pointer
+			padding: 19px 15px
+			// border: 1px solid green
+			color: #362f2f
+			font-size: 14px
+			font-weight: 700
+			text-transform: uppercase			
+			// font-family: "Roboto Condensed"
+			font-size: 12px
+			font-weight: 700
+			text-transform: uppercase
+			&:hover
+				text-decoration: underline
+				text-decoration-color: #f3c90c
+				.submenu
+					display: flex
+.submenu
+	position: absolute
+	+flex-justify-align-flow(center, center, column nowrap)
+	background: #Fff
+	margin-top: 20px
+	margin-left: -16px
+	width: calc((50% - 50px - 10px - 50px - 30px - 16px) / 5)
+	display: none
+	transition: 0.5s
+	&-list
+		&__item
+			cursor: pointer
+			padding: 5px 0 5px 35px
+			width: 100%
+			font-size: 12px
+			font-weight: 700
+			text-transform: uppercase					
+			&:hover
+				color: #c3a000
+				&:before
+					content: '\25BA'
+					position: absolute
+					margin-left: -15px
+				.submenu--right
+					display: flex
+	&--right
+		position: absolute
+		+flex-justify-align-flow(center, center, column nowrap)
+		background: #fff
+		// border-left: 5px solid #fff
+		width: 100%
+		margin-top: -17px
+		margin-left: 86px
+		display: none
+		&__item
+			cursor: pointer
+			padding: 5px 0 5px 35px
+			width: 100%
+			font-size: 12px
+			font-weight: 700
+			text-transform: uppercase			
+			&:hover
+				color: #c3a000
+				// font-family: "Roboto Condensed"
+				&:before
+					content: '\25BA'
+					position: absolute
+					margin-left: -15px		
+
+.logo
+	cursor: pointer
+	z-index: 1000
+	&--yellow
+		position: absolute
+		top: 0
+		left: calc(50% - 50px)
+		// right: 50%
+		padding: 50px
+		display: block
+		background: url('../img/Header/square_logo.png') no-repeat
+		background-size: 100% 100%
+	&--black
+		width: 100px
+		height: 100px
+		background: url('../img/logo-black.png') no-repeat
+		background-size: 100% 100%		
+.social-button
+	// border: 1px solid red
+	+flex-justify-align(flex-end, center)
+	&-list
+		+flex-justify-align-flow(flex-end, center, row nowrap)
+		// border: 1px solid green
+		&__item
+			@each $img-name in facebook, twitter, insta, pig, gp, mail
+				&--#{$img-name}
+					width: 25px
+					cursor: pointer
+					height: 20px
+					// border: 1px solid red
+					background: url('../img/Header/social/#{$img-name}.png') no-repeat center
+					// background-size: 100% 100%
+	&--header
+		width: 50%
+
+.main-slider
+	width: 100%
+	margin-bottom: 60px
+	+flex-justify-align-flow(flex-start, flex-start, row nowrap)
+	&__item
+		width: 100%
+		display: none
+		// position: absolute
+		&--active
+			display: flex
+	&__info
+		position: relative
+		z-index: 10
+		margin-top: 325px + 150px
+		padding: 60px 0
+		width: 35%
+		// border: 1px solid red
+		background: #fff
+		+flex-justify-align-flow(center, center, row nowrap)
+	&__text
+		width: 70%
+	&__title
+		color: #362f2f
+		// font-family: "Roboto Condensed"
+		font-size: 18px
+		text-transform: uppercase
+	&__prof
+		color: #362f2f
+		// font-family: "Roboto Condensed"
+		font-size: 14px
+		font-style: italic
+		margin-bottom: 15px
+
+	&__desc
+		color: #362f2f
+		// font-family: "Roboto Condensed"
+		font-size: 14px
+	&__controlle
+		width: 30%
+		+flex-justify-align-flow(center, center, column nowrap)
+	&__button
+		width: 34px
+		height: 34px
+		background-color: #362f2f
+		color: #fff
+		border: none
+		font-size: 14px
+		font-weight: 500
+		font-style: italic
+		margin: 0
+		cursor: pointer
+
+
+footer
+	+flex-justify-align-flow(flex-start, flex-start, row wrap)
+	padding-bottom: 15px
+
+.advert
+	// border: 1px solid blue
+	margin-right: 30px
+	width: 30%
+	+flex-justify-align-flow(center, center, column nowrap)
+	text-align: center
+	&__img
+		// padding: 75px 180px
+		width: 100%
+		height: 150px
+		background: url('../img/news-img.png') no-repeat bottom
+		background-size: 100% 100%
+	&__text
+		padding: 25px 0
+		width: 100%
+		background: #000
+		+flex-justify-align-flow(center, center, column nowrap)
+	&__title
+		margin-bottom: 15px
+		color: #ffffff
+		font-family: "Roboto Condensed"
+		font-size: 18px
+		text-transform: uppercase
+	&__date-day
+		// font-family: "Roboto Condensed"
+		margin-bottom: 15px
+		font-size: 16px
+		color: #ffffff
+		font-family: "Roboto Condensed"
+		text-transform: uppercase
+	&__time
+		margin-bottom: 30px
+		color: #ffffff
+		font-family: "Roboto Condensed"
+		font-size: 18px
+		text-transform: uppercase		
+.rsvp
+	width: 70px
+	height: 70px
+	+flex-justify-align(center, center)
+	background: #c3a000
+	color: #ffffff
+	// font-family: "Roboto Condensed"
+	font-size: 14px
+	font-weight: 700
+	text-transform: uppercase
+
+.news
+	// border: 1px solid green
+	width: calc(35% - 30px)
+	margin-right: 25px
+	&__title
+		width: 50%
+		padding: 10px
+		border-bottom: 2px solid #c3a000
+		color: #362f2f
+		// font-family: "Roboto Condensed"
+		font-size: 16px
+		font-weight: 700
+		text-transform: uppercase
+	&-list
+		+flex-justify-align-flow(flex-start, flex-start, column nowrap)
+		margin-top: 25px
+		&__item
+			+flex-justify-align-flow(flex-start, center, row wrap)
+		&__img
+			width: 70px
+			height: 70px
+		&__text
+			width: calc(100% - 100px - 2px)
+			margin-left: 30px
+			+flex-justify-align-flow(flex-start, flex-start, column nowrap)
+		&__title
+			color: #362f2f
+			// font-family: "Roboto Condensed"
+			font-size: 12px
+			font-weight: 700
+			text-transform: uppercase
+		&__date
+			color: #7a7a7a
+			// font-family: "Roboto Condensed"
+			font-size: 11px
+			font-weight: 400
+			text-transform: uppercase
+		&__desc
+			color: #362f2f
+			// font-family: "Roboto Condensed"
+			font-size: 12px
+			font-weight: 400
+		&__read-more
+			color: #c3a000
+			// font-family: "Roboto Condensed"
+			font-size: 10px
+			font-weight: 700
+			text-transform: uppercase
+
+.category
+	width: calc(35% - 30px)
+	margin-top: 15px
+	// +flex-justify-align-flow(flex-start, flex-start, row nowrap)
+.contact
+	+flex-justify-align-flow(flex-start, flex-start, row nowrap)
+	margin-bottom: 75px
+	&-info
+		margin-left: 25px
+		width: calc(100% - 100px - 25px)
+		+flex-justify-align-flow(flex-end, flex-start, column nowrap)
+	&__number
+		margin-bottom: 10px
+		margin-left: 40px
+		color: #362f2f
+		// font-family: "Roboto Condensed"
+		font-size: 12px
+		font-weight: 400
+		text-transform: uppercase
+		&:before
+			margin-left: -40px
+			content: ''
+			display: block
+			position: absolute
+			// border: 1px solid yellow
+			width: 15px
+			height: 15px
+			background: url('../img/contact-number.png') no-repeat left
+	&__mail
+		margin-bottom: 25px
+		margin-left: 40px
+		color: #362f2f
+		// font-family: "Roboto Condensed"
+		font-size: 12px
+		font-weight: 400
+		text-transform: uppercase
+		&:before
+			margin-left: -40px
+			content: ''
+			display: block
+			position: absolute
+			// border: 1px solid yellow
+			width: 15px
+			height: 15px
+			background: url('../img/contact-mail.png') no-repeat left
+
+.twitter-repost
+	width: 100%
+	&__img
+		margin-bottom: 20px
+		// border: 1px solid red
+		height: 30px
+		width: 100%
+		background: url('../img/twitter-repost.png') no-repeat center bottom
+	&__text
+		text-align: center
+		color: #c3a000
+		// font-family: "Roboto Condensed - Light Italic"
+		font-size: 18px
+		font-weight: 400
+
+.firms
+	margin: 100px 0
+	width: 100%
+	&-list
+		+flex-justify-align-flow(flex-start, center, row wrap)
+		&__item
+			width: 25%
+			height: 50px
+			@each $img in phaseone, manfrotto, hasselblad, broncolor
+				&--#{$img}
+					background: url('../img/firms/#{$img}.png') no-repeat center bottom
+.copyright
+	width: 100%
+	text-align: center
+	color: #000000
+	// font-family: "Open Sans"
+	font-size: 13px
+	font-weight: 400
+	.created-by
+		&:after
+			content: '\2764'
+	.reserved
+		margin-top: 50px
+
+.categories
+	width: calc(35% - 30px)
+	&__title
+		width: 50%
+		padding: 10px
+		margin-bottom: 35px
+		border-bottom: 2px solid #c3a000
+		color: #362f2f
+		// font-family: "Roboto Condensed"
+		font-size: 16px
+		font-weight: 700
+		text-transform: uppercase
+	&-list
+		+flex-flow(column nowrap)
+		padding-left: 45px
+		&__item
+			list-style-type: square
+			color: #353535
+			// font-family: "Roboto Condensed"
+			font-size: 14px
+			font-weight: 400
+
+//-------------------------POST------------------
+.center
+	+flex-justify-align(center, center)
+.post
+	&-wrapper
+		max-width: 780px
+		height: auto
+		padding: 0
+	&__img
+		width: 100%
+		height: 740px
+	&__title
+		margin-bottom: 25px
+		color: #333333
+		// font-family: "Roboto Condensed"
+		font-size: 30px
+		font-weight: 400
+		text-transform: uppercase
+	&__info
+		width: 100%
+		margin-bottom: 30px
+		+flex-justify-align-flow(center, center, row nowrap)
+		&--blog
+			+flex-justify(space-around)
+		p
+			margin-left: 80px
+		&:first-child
+			margin-left: 25px
+	@each $img in date, comments-number, likes-number
+		&__#{$img}
+			color: #000000
+			// font-family: "Roboto Condensed"
+			font-size: 14px
+			font-style: italic
+			&:before
+				margin-left: -25px
+				margin-top: -4px
+				content: ''
+				display: block
+				position: absolute
+				width: 20px
+				height: 20px
+				background: url('../img/post/#{$img}.png') no-repeat center left
+	@each $img in date, comments-number
+		&__#{$img}--blog
+			color: #fff
+			font-size: 14px
+			font-style: italic				
+			&:before
+				margin-left: -25px
+				margin-top: -4px
+				content: ''
+				display: block
+				position: absolute
+				width: 20px
+				height: 20px
+				background: url('../img/blog/#{$img}--blog.png') no-repeat center left
+		&__date
+			color: #333333
+			// font-family: Roboto
+			font-size: 12px
+			font-style: italic
+	&__text
+		margin-bottom: 20px
+		color: #000000
+		// font-family: "Roboto Condensed"
+		font-size: 13px
+		font-weight: 400
+	&__share
+		+flex-justify-align-flow(flex-start, center, row nowrap)
+		padding: 30px 40px
+		background: #f8f8f8
+.share
+	&__text
+		color: #333333
+		// font-family: "Roboto Condensed"
+		font-size: 12px
+		font-weight: 700
+		text-transform: uppercase
+	&__button
+		margin-left: 35px
+		@each $img in facebook, twitter, pinterest
+			&--#{$img}
+				width: 20px
+				height: 20px
+				background: url('../img/post/share/#{$img}.png') no-repeat center left
+
+//--------------------------PORTFOLIO------------
+.portfolio
+	+flex-justify-align-flow(flex-start, center, row wrap)
+	margin-bottom: 220px
+	&__item
+		cursor: pointer
+		padding: 70px 65px
+		width: calc(33% - 130px)
+		height: 300px
+		background: url('../img/portfolio/photo.png') no-repeat center
+		background-size: 100% 100%
+		&:hover
+			.portfolio__img--hovered
+				display: flex
+				opacity: 1
+	&__img--hovered
+		transition: 3s
+		+flex-justify-align(center, center)
+		display: none
+		opacity: 0
+		width: 100%
+		height: 100%
+		background: rgba(255, 255, 255, 0.5)
+	// &__goto-img
+
+.button
+	&--top
+		position: fixed
+		right: 50px
+		bottom: 50px
+		padding: 20px
+		+flex-justify-align(center, center)
+		background: #362f2f
+		border: none
+		color: #ffffff
+		// font-family: "Font Awesome"
+		font-size: 18px
+		font-weight: 400
+		text-transform: uppercase
+		transform: rotate(90deg)
+
+//-----------------BLOG--------------
+.blog
+	&-list
+		+flex-justify-align-flow(space-around, flex-start, row wrap)
+		&__item
+			width: calc(33% - 30px)
+			margin-bottom: 45px
+	&__img
+		height: 360px
+		width: 100%
+		margin-bottom: -5px
+	&__text
+		padding: 30px 10px
+		background: #362f2f
+	&__title
+		margin-bottom: 20px
+		color: #ffffff
+		// font-family: "Roboto Condensed"
+		font-size: 26px
+		font-weight: 400
+		text-transform: uppercase
+	&__desc
+		margin-bottom: 55px
+		color: #ffffff
+		// font-family: "Roboto Condensed"
+		font-size: 14px
+		font-weight: 300
+	&__button
+		display: block
+		padding: 10px 60px
+		margin-bottom: 65px
+		background: #c3a000
+		border: none
+		color: #fff
+		// font-family: "Roboto Condensed"
+		font-size: 12px
+		font-weight: 700
+		text-transform: uppercase
+		&-container
+			+flex-justify-align(center, center)
+
+//-----------------Comments---------------
+.comments
+	margin-top: 70px
+	&__title
+		margin-bottom: 25px
+	&-list
+		+flex-justify-align-flow(center, center, column nowrap)
+		&__item
+			margin-bottom: 20px
+			+flex-justify-align-flow(flex-start, flex-start, column nowrap)
+			&--answer
+				margin-left: 20px
+				width: calc(100% - 20px)
+	&__user
+		&-info
+			margin-bottom: 10px
+			+flex-justify-align-flow(flex-start, center, row nowrap)
+			width: 100%
+		&-name
+			margin-right: 30px
+			color: #333333
+			// font-family: "Roboto Condensed"
+			font-size: 16px
+			font-weight: 400
+	&__main-info
+		width: 40%
+		+flex-justify-align-flow(flex-start, center, row nowrap)
+	&__date
+		color: #7f8c8c
+		// font-family: "Roboto Condensed"
+		font-size: 12px
+		font-weight: 400
+	&__reply
+		width: 50%
+		+flex-justify(flex-end)
+		&-button
+			cursor: pointer
+			&:before
+				content: ''
+				position: absolute
+				margin-left: -25px
+				display: block
+				width: 15px
+				height: 15px
+				background: url('../img/post/share/Reply.png') no-repeat center
+				background-size: 100% 100%
+
+	&__content
+		+flex-justify-align-flow(flex-start, center, row nowrap)
+		background-color: #f8f8f8
+	&__avatar
+		&-block
+			height: 70px
+			width: 15%
+			background-color: #333333
+		&-img
+			width: 100%
+	&__text
+		color: #000000
+		// font-family: "Roboto Condensed"
+		font-size: 14px
+		font-weight: 400
+		&-block
+			padding: 15px 50px 20px 25px
+
+
+.leave-comment
+	margin-top: 95px
+	margin-bottom: 130px
+	&__text
+		margin-top: 30px
+		color: #333333
+		// font-family: "Roboto Condensed"
+		font-size: 12px
+		font-weight: 400
+.comment-form
+	+flex-justify-align-flow(flex-start, flex-end, row wrap)
+	width: 100%
+	input
+		margin-bottom: 25px
+		width: calc(50% - 65px)
+		padding: 15px
+		border: 1px solid #000000
+		&:nth-of-type(2n-1)
+			margin-right: 60px
+	textarea
+		width: calc(70% - 65px)
+		padding: 15px
+		border: 1px solid #000000
+		margin-right: 35px
+	button
+		padding: 10px 70px
+		border: none
+		background-color: #333333	
+		color: #ffffff
+		// font-family: "Roboto Condensed"
+		font-size: 18px
+		font-weight: 700
+		text-transform: uppercase
